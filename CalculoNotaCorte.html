@@ -1,0 +1,517 @@
+<html>
+ <head>
+ <link href="estilos.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+<script type="text/javascript" src="funciones.js"></script>
+
+
+ <title> 
+  C&aacute;lculo Notas de Corte
+ </title>
+</head>
+
+<body>
+
+<center><h1> 
+ <font class="hit-the-floor">Calculador Nota de Corte </font> 
+</h1></center>
+
+
+<hr color=#FFFFFF>
+
+
+<form name="formulario" id="Limpiado" method="get">
+
+
+<table>
+ <tr> 
+  <td>     
+   <center>
+    <p>
+    <letra5>Informaci&oacute;n:</letra5><font class="letra2">En primer lugar, te recomendamos que rellenes los campos con
+      tus datos personales. Tras ello, introduce los datos pedidos en los diferentes campos, como las notas de Bachillerato y
+      las notas de las dos partes de la PAU (fase obligatoria y fase espec&iacute;fica). Finalmente, pulsa el bot&oacute;n de calcular.<br>                
+      Si deseas hacer una nueva consulta, borra los datos pulsando el bot&oacute;n de limpiar.
+    </font></p>
+   </center>
+  </td>
+ </tr>
+</table>
+
+
+<hr color=#FFFFFF>
+
+
+<center><h1>
+<font class="hit-the-floor1">Datos Personales</font>
+</h1></center>
+
+<hr color=#FFFFFF >
+
+
+<table align="center">
+ <tr>
+  <td width="349">
+   <table>
+    <tr>
+     <td align="right">
+     <font class="letra3">Nombre:</font>
+     </td>
+
+     <td>
+      <input type="text" class="box-blue0" name="nombre" value="">
+     </td>
+    </tr>
+ 
+    <tr>
+     <td align="right">
+     <font class="letra3">Apellidos:</font>
+     </td>
+
+     <td>
+      <input type="text" class="box-blue0" name="apellidos" value="">
+     </td>
+    </tr>
+
+    <tr>
+     <td align="right">
+     <font class="letra3">NIF:</font>
+     </td>
+
+     <td>
+      <input type="text" class="box-blue0" name="nif" value="" maxlength="11" size="11">
+     </td>
+
+    <tr>
+     <td align="right" >
+      <font class="letra3">Email:</font>
+     </td>
+<td>
+  <input type="text" class="box-blue0" name="email" value="">
+   </td>
+    </tr>
+   </table>
+  </td>
+
+<td width="500">
+    <p><font class="letra2">Si introduces tus datos personales, al solicitar el "C&aacute;lculo de
+     tu nota de corte" entrar&aacute;s en el sorteo de 200&euro; a canjear en material universitario.
+     Haz click en el bot&oacute;n PDF para descargar tu boleto. </font>
+    </p>
+  </td>
+ </tr>
+</table>
+
+<hr color=#FFFFFF>
+
+<center><h1>
+<font class="hit-the-floor1">Notas</font>
+</h1></center>
+<hr color=#FFFFFF >
+
+ <div style="text-align:center;">
+	<table align="center" style="margin-bottom: 0; margin-top: 0;">
+ <tr>
+  <td>
+   <table>
+    <tr>
+     <td colspan="2">
+     <font class="hit-the-floor2">BACHILLERATO </font> 
+     </td>
+    </tr>
+    <tr>
+     <td >
+     
+     <font class="letra">Nota primer curso</font> 
+     </td>
+     <td>
+      <input maxlength="4" type="text" class="box-blue1"  name="NotaPrimero" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr >
+     <td >
+      <font class="letra">Nota segundo curso</font> 
+     </td>
+     <td>
+      <input maxlength="4" type="text" class="box-blue1" name="NotaSegundo" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <transparente>d</transparente>
+     </td>
+    </tr>
+     <tr>
+     <td>
+      <transparente>d</transparente>
+     </td>
+    </tr>
+    <tr>
+     <td colspan="2">
+      <hr color=#FFFFFF>
+     </td>
+    </tr>
+    <tr>
+     <td align="right">
+       <font class="letra3">Nota media</font>
+     </td>
+     <td>
+      <input type="text" readonly="readonly" class="box-blue2" name="NotaMediaBachillerato" value="0.000" size="5">
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td>
+   <table>
+    <tr>
+     <td colspan="2">
+     <font class="hit-the-floor2"> FASE OBLIGATORIA</font>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <font class="letra1">&nbsp;&nbsp;Lengua Castellana y Literatura</font> 
+     </td>
+     <td>
+      <input maxlength="4" type="text" class="box-blue1" name="NotaLengua" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <font class="letra1">&nbsp;&nbsp;Historia de Espa&ntilde;a</font> 
+     </td>
+     <td>
+      <input maxlength="4" type="text" class="box-blue1" name="NotaHistoria" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <font class="letra1">&nbsp;&nbsp;Primera Lengua Extranjera</font> 
+     </td>
+     <td>
+      <input maxlength="4" type="text" class="box-blue1" name="NotaGeneral3" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+        <div class="select">
+       <select name="FaseGeneralList">
+        <option value="Elige">Elige troncal de modalidad</option>
+        <option value="FG4.1">Fundamentos del Arte II</option>
+        <option value="FG4.2">Lat&iacute;n II</option>
+        <option value="FG4.3">Matem&aacute;ticas II</option>
+        <option value="FG4.4">Matem&aacute;ticas aplicadas CCSS II</option>
+       </select>
+      </div>
+     </td>
+     <td>
+      <input maxlength="4" type="text" class="box-blue1" name="NotaGeneral4" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td colspan="2">
+      <hr align="center" color=#FFFFFF id="0">
+     </td>
+    </tr>
+    <tr>
+     <td align="right">
+		 <font class="letra3"> Nota media</font>
+     </td>
+     <td>
+      <input type="text" readonly="readonly" class="box-blue2"  name="NotaMediaFaseGeneral" value="0.000" size="5">
+     </td>
+   </table>
+   <td>
+   <table>
+    <tr>
+     <td colspan="2">
+      <font class="hit-the-floor2">FASE ESPEC&Iacute;FICA</font>
+     </td>
+    </tr>
+    <tr>
+     <td>
+        <div class="select">
+       <select name="Especifica1">
+	<option value="EligeOpt">Elige tu optativa</option>
+        <option value="0">An&aacute;lisis Musical II</option>
+        <option value="1">Anatom&iacute;a Aplicada</option>
+        <option value="2">Artes Esc&eacute;nicas</option>
+        <option value="3">Biolog&iacute;a</option>
+        <option value="4">CC. de la Tierra y del Medio Ambiente</option>
+        <option value="5">Cultura Audiovisual</option>
+        <option value="6">Dibujo Art&iacute;stico II</option>
+        <option value="7">Dibujo T&eacute;cnico II</option>
+        <option value="8">Dise&ntilde;o</option>
+        <option value="9">Econom&iacute;a</option>
+        <option value="10">Econom&iacute;a de la Empresa</option>
+        <option value="11">Electrotecnia</option>
+        <option value="12">F&iacute;sica</option>
+        <option value="13">Fundamentos del Arte II</option>
+        <option value="14">Geograf&iacute;a</option>
+        <option value="15">Geolog&iacute;a</option>
+        <option value="16">Griego II</option>
+        <option value="17">Historia de la Filosof&iacute;a</option>
+        <option value="18">Historia de la M&uacute;sica y de la Danza</option>
+        <option value="19">Historia del Arte</option>
+        <option value="20">Historia del Mundo Contempor&aacute;neo</option>
+        <option value="21">Lat&iacute;n II</option>
+        <option value="22">Lenguaje y Pr&aacute;ctica Musical</option>
+        <option value="23">Literatura Universal</option>
+        <option value="24">Matem&aacute;ticas II</option>
+        <option value="25">Matem&aacute;ticas aplicadas CCSS II</option>
+        <option value="26">Qu&iacute;mica</option>
+        <option value="27">T&eacute;cnicas Expresi&oacute;n Gr&aacute;fico-Pl&aacute;stica</option>
+        <option value="28">Tecnolog&iacute;a Industrial</option>
+        <option value="29">Volumen</option>
+       </select>
+     </td>
+     <td>
+      <input maxlength="4" type="text" id="NOTAESP1" class="box-blue1" name="NotaEspecifica1" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+         <div class="select">
+       <select name="Especifica2">
+	<option value="EligeOpt">Elige tu optativa</option>
+        <option value="0">An&aacute;lisis Musical II</option>
+        <option value="1">Anatom&iacute;a Aplicada</option>
+        <option value="2">Artes Esc&eacute;nicas</option>
+        <option value="3">Biolog&iacute;a</option>
+        <option value="4">CC. de la Tierra y del Medio Ambiente</option>
+        <option value="5">Cultura Audiovisual</option>
+        <option value="6">Dibujo Art&iacute;stico II</option>
+        <option value="7">Dibujo T&eacute;cnico II</option>
+        <option value="8">Dise&ntilde;o</option>
+        <option value="9">Econom&iacute;a</option>
+        <option value="10">Econom&iacute;a de la Empresa</option>
+        <option value="11">Electrotecnia</option>
+        <option value="12">F&iacute;sica</option>
+        <option value="13">Fundamentos del Arte II</option>
+        <option value="14">Geograf&iacute;a</option>
+        <option value="15">Geolog&iacute;a</option>
+        <option value="16">Griego II</option>
+        <option value="17">Historia de la Filosof&iacute;a</option>
+        <option value="18">Historia de la M&uacute;sica y de la Danza</option>
+        <option value="19">Historia del Arte</option>
+        <option value="20">Historia del Mundo Contempor&aacute;neo</option>
+        <option value="21">Lat&iacute;n II</option>
+        <option value="22">Lenguaje y Pr&aacute;ctica Musical</option>
+        <option value="23">Literatura Universal</option>
+        <option value="24">Matem&aacute;ticas II</option>
+        <option value="25">Matem&aacute;ticas aplicadas CCSS II</option>
+        <option value="26">Qu&iacute;mica</option>
+        <option value="27">T&eacute;cnicas Expresi&oacute;n Gr&aacute;fico-Pl&aacute;stica</option>
+        <option value="28">Tecnolog&iacute;a Industrial</option>
+        <option value="29">Volumen</option>
+       </select>
+      
+     </td>
+     <td>
+      <input maxlength="4" type="text" id="NOTAESP2" class="box-blue1" name="NotaEspecifica2" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+        <div class="select">
+       <select name="Especifica3">
+	<option value="EligeOpt">Elige tu optativa</option>
+        <option value="0">An&aacute;lisis Musical II</option>
+        <option value="1">Anatom&iacute;a Aplicada</option>
+        <option value="2">Artes Esc&eacute;nicas</option>
+        <option value="3">Biolog&iacute;a</option>
+        <option value="4">CC. de la Tierra y del Medio Ambiente</option>
+        <option value="5">Cultura Audiovisual</option>
+        <option value="6">Dibujo Art&iacute;stico II</option>
+        <option value="7">Dibujo T&eacute;cnico II</option>
+        <option value="8">Dise&ntilde;o</option>
+        <option value="9">Econom&iacute;a</option>
+        <option value="10">Econom&iacute;a de la Empresa</option>
+        <option value="11">Electrotecnia</option>
+        <option value="12">F&iacute;sica</option>
+        <option value="13">Fundamentos del Arte II</option>
+        <option value="14">Geograf&iacute;a</option>
+        <option value="15">Geolog&iacute;a</option>
+        <option value="16">Griego II</option>
+        <option value="17">Historia de la Filosof&iacute;a</option>
+        <option value="18">Historia de la M&uacute;sica y de la Danza</option>
+        <option value="19">Historia del Arte</option>
+        <option value="20">Historia del Mundo Contempor&aacute;neo</option>
+        <option value="21">Lat&iacute;n II</option>
+        <option value="22">Lenguaje y Pr&aacute;ctica Musical</option>
+        <option value="23">Literatura Universal</option>
+        <option value="24">Matem&aacute;ticas II</option>
+        <option value="25">Matem&aacute;ticas aplicadas CCSS II</option>
+        <option value="26">Qu&iacute;mica</option>
+        <option value="27">T&eacute;cnicas Expresi&oacute;n Gr&aacute;fico-Pl&aacute;stica</option>
+        <option value="28">Tecnolog&iacute;a Industrial</option>
+        <option value="29">Volumen</option>
+       </select>
+     </td>
+     <td>
+      <input maxlength="4" type="text" id="NOTAESP3" class="box-blue1" name="NotaEspecifica3" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td>
+        <div class="select">
+       <select name="Especifica4">
+	<option value="EligeOpt">Elige tu optativa</option>
+        <option value="0">An&aacute;lisis Musical II</option>
+        <option value="1">Anatom&iacute;a Aplicada</option>
+        <option value="2">Artes Esc&eacute;nicas</option>
+        <option value="3">Biolog&iacute;a</option>
+        <option value="4">CC. de la Tierra y del Medio Ambiente</option>
+        <option value="5">Cultura Audiovisual</option>
+        <option value="6">Dibujo Art&iacute;stico II</option>
+        <option value="7">Dibujo T&eacute;cnico II</option>
+        <option value="8">Dise&ntilde;o</option>
+        <option value="9">Econom&iacute;a</option>
+        <option value="10">Econom&iacute;a de la Empresa</option>
+        <option value="11">Electrotecnia</option>
+        <option value="12">F&iacute;sica</option>
+        <option value="13">Fundamentos del Arte II</option>
+        <option value="14">Geograf&iacute;a</option>
+        <option value="15">Geolog&iacute;a</option>
+        <option value="16">Griego II</option>
+        <option value="17">Historia de la Filosof&iacute;a</option>
+        <option value="18">Historia de la M&uacute;sica y de la Danza</option>
+        <option value="19">Historia del Arte</option>
+        <option value="20">Historia del Mundo Contempor&aacute;neo</option>
+        <option value="21">Lat&iacute;n II</option>
+        <option value="22">Lenguaje y Pr&aacute;ctica Musical</option>
+        <option value="23">Literatura Universal</option>
+        <option value="24">Matem&aacute;ticas II</option>
+        <option value="25">Matem&aacute;ticas aplicadas CCSS II</option>
+        <option value="26">Qu&iacute;mica</option>
+        <option value="27">T&eacute;cnicas Expresi&oacute;n Gr&aacute;fico-Pl&aacute;stica</option>
+        <option value="28">Tecnolog&iacute;a Industrial</option>
+        <option value="29">Volumen</option>
+       </select>
+     </td>
+     <td>
+      <input maxlength="4" type="text" id="NOTAESP4" class="box-blue1" name="NotaEspecifica4" value="" size="4" onkeypress="return validar_texto(event)">
+     </td>
+    </tr>
+    <tr>
+     <td colspan="2">
+      <hr color=#FFFFF>
+     </td>
+    </tr>
+    <tr>
+     <td align="right">
+		 <font class="letra3">  Nota media</font>
+     </td>
+     <td>
+      <input type="text" readonly="readonly" class="box-blue2" name="NotaFaseEspecifica" value="0.000" size="5">
+     </td>
+     </table>
+     
+    </tr>
+   </table>
+     <hr color=#FFFFFF >
+     <center><table>
+     <tr>
+      <td width="155" align="right">
+		  <font class="letra4"> Nota obtenida</font>
+     </td>
+     <td width="26">
+      <input type="text" id="NOTAGRANDE" readonly="readonly" class="box-blue2" name="NotaDeCorte" value="00.000" size="6">
+     </td>
+     <td width="547"> <div class="select">
+       <select name="Carreras">
+        <option value="EligeGrado">Elige el Grado</option>
+        <option value="ARQUITECTURA">Grado en Arquitectura</option>
+        <option value="SISTEMATELECO">Grado en Ingenier&iacute;a de Sistemas de Telecomunicaci&oacute;n</option>
+        <option value="SISTELECTRON">Grado en Ingenier&iacute;a de Sistemas Electr&oacute;nicos</option>
+        <option value="SONIDOIMAGEN">Grado en Ingenier&iacute;a de Sonido e Imagen</option>
+        <option value="TECTELECO">Grado en Ingenier&iacute;a de Tecnolog&iacute;a de Telecomunicaci&oacute;n</option>
+        <option value="TELEMATICA">Grado en Ingenier&iacute;a Telem&aacute;tica</option>
+        <option value="TECINDUSTRIALES">Grado en Ingenier&iacute;a en Tecnolog&iacute;as Industriales</option>
+        <option value="ENERGIA">Grado en Ingenier&iacute;a de la Energ&iacute;a</option>
+        <option value="ROBOTICA">Grado en Ingenier&iacute;a Electr&oacute;nica, Rob&oacute;tica y Mecatr&oacute;nica</option>
+        <option value="ORGINDUSTRIAL">Grado en Ingenier&iacute;a en Organizaci&oacute;n Industrial</option>
+        <option value="COMPUTADOR">Grado en Ingenier&iacute;a de Computadores</option>
+        <option value="INGSALUD">Grado en Ingenier&iacute;a de la Salud</option>
+        <option value="SOFTWARE">Grado en Ingenier&iacute;a de Software</option>
+        <option value="INFORMATICA">Grado en Ingenier&iacute;a Inform&aacute;tica</option>
+        <option value="DISENIOINDUST">Grado en Ingenier&iacute;a en Dise&ntilde;o Industrial y Desarrollo del Producto</option>
+        <option value="ELECTRICA">Grado en Ingenier&iacute;a El&eacute;ctrica</option>
+        <option value="ELECTRONINDUST">Grado en Ingenier&iacute;a Electr&oacute;nica Industrial</option>
+        <option value="MECANICA">Grado en Ingenier&iacute;a Mec&aacute;nica</option>
+        <option value="ELECTMECAN">Grado en Ingenier&iacute;a El&eacute;ctrica + Ingenier&iacute;a Mec&aacute;nica</option>
+        <option value="ELECTRONINDUSTELECT">Grado en Ingenier&iacute;a Electr&oacute;nica Industrial + Ingenier&iacute;a El&eacute;ctrica</option>
+        <option value="MECANDISENIO">Grado en Ingenier&iacute;a Mec&aacute;nica + Ing. en Dise&ntilde;o Industrial y Desarrollo del Producto</option>
+        <option value="LOGOPEDIA">Grado en Logopedia</option>
+        <option value="PSICOLOGIA">Grado en Psicolog&iacute;a</option>
+        <option value="ENFERMERIA">Grado en Enfermer&iacute;a</option>
+        <option value="PODOLOGIA">Grado en Podolog&iacute;a</option>
+        <option value="TERAPIA">Grado en Terapia Ocupacional</option>
+        <option value="FISIOTERAPIA">Grado en Fisioterapia</option>
+        <option value="MEDICINA">Grado en Medicina</option>
+        <option value="ENFERMERIA">Grado en Enfermer&iacute;a</option>
+        <option value="BIOLOGIA">Grado en Biolog&iacute;a</option>
+        <option value="BIOQUIMICA">Grado en Bioqu&iacute;mica</option>
+        <option value="AMBIENTALES">Grado en Ciencias Ambientales</option>
+        <option value="MATEMATICAS">Grado en Matem&aacute;ticas</option>
+        <option value="INGQUIMICA">Grado en Ingenier&iacute;a Qu&iacute;mica</option>
+        <option value="QUIMICA">Grado en Qu&iacute;mica</option>
+        <option value="INGLES">Grado en Estudios Ingleses</option>
+        <option value="FILOLCLAS">Grado en Filolog&iacute;a Cl&aacute;sica</option>
+        <option value="FILOLHISP">Grado en Filolog&iacute;a Hisp&aacute;nica</option>
+        <option value="FILOSOFIA">Grado en Filosof&iacute;a</option>
+        <option value="GEOGRAFIA">Grado en Geograf&iacute;a y Gesti&oacute;n del Territorio</option>
+        <option value="HISTORIAARTE">Grado en Historia del Arte</option>
+        <option value="HISTORIA">Grado en Historia</option>
+        <option value="TRADFRANCES">Grado en Traducci&oacute;n e Interpretaci&oacute;n (Franc&eacute;s)</option>
+        <option value="TRADINGLES">Grado en Traducci&oacute;n e Interpretaci&oacute;n (Ingl&eacute;s)</option>
+        <option value="BELLASARTES">Grado en Bellas Artes</option>
+        <option value="INVESTMERCADO">Grado en Marketing e Investigaci&oacute;n de Mercado</option>
+        <option value="GESTADMIN">Grado en Gesti&oacute;n y Administraci&oacute;n P&uacute;blica</option>
+	<option value="TURISMO">Grado en Turismo</option>
+        <option value="EDUINFANT">Grado en Educaci&oacute;n Infantil</option>
+        <option value="EDUPRIMARIA">Grado en Educaci&oacute;n Primaria</option>
+        <option value="EDUPRIMARIAINGLES">Grado en Educaci&oacute;n Primaria (con docencia en ingl&eacute;s)</option>
+        <option value="EDUSOCIAL">Grado en Educaci&oacute;n Social</option>
+        <option value="PEDAGOGIA">Grado en Pedagog&iacute;a</option>
+        <option value="PERIODISMO">Grado en Periodismo</option>
+        <option value="PUBLICIDAD">Grado en Publicidad y Relaciones P&uacute;blicas</option>
+        <option value="AUDIOVISUAL">Grado en Comunicaci&oacute;n Audiovisual</option>
+        <option value="RRLL">Grado en Relaciones Laborales y Recursos Humanos</option>
+        <option value="TRABAJOSOCIAL">Grado en Trabajo Social</option>
+        <option value="ASIA">Grado en Estudios de Asia Oriental</option>
+        <option value="ECONOMIA">Grado en Econom&iacute;a</option>
+        <option value="FINANZAS">Grado en Finanzas y Contabilidad</option>
+        <option value="ADE">Grado en Administraci&oacute;n y Direcci&oacute;n de Empresas</option>
+        <option value="ADEDERECHO">Grado en Administraci&oacute;n y Direcci&oacute;n de Empresas + Derecho</option>
+        <option value="ADEESPINGECON">Grado en Administraci&oacute;n y Direcci&oacute;n de Empresas (Espa&ntilde;ol-Ingl&eacute;s) + Econom&iacute;a</option>
+        <option value="CRIMINOLOGIA">Grado en Criminolog&iacute;a</option>
+        <option value="DERECHO">Grado en Derecho</option>
+	<option value="EDUPRIMARIAANT">Grado en Educaci&oacute;n Primaria en Antequera</option>
+        <option value="EDUINFANTANT">Grado en Educaci&oacute;n Infantil en Antequera</option>
+       </select></td>
+        <td align="right">
+		  <font class="letra4">Nota de Admisi&oacute;n</font>
+     </td>
+     <td width="26">
+      <input type="text" readonly="readonly" class="box-blue3" name="NotaDeAdmision" value="00.000" size="6">
+     </td>
+       </tr>
+	<tr>
+	<td colspan="3"><center><input type="button" class="btn btn-6 btn-6f" value="Calcular" language="javascript" onclick="CalcularNotaDeCorte ()">
+         <input type="button" class="btn btn-6 btn-6f" value="Limpiar" language"JavaScript" onclick="Limpiar ()">
+         <input type="button" class="btn btn-6 btn-6f" value="PDF" language="javascript" onclick="guardarPDF()">
+         </center>
+	
+ 	</td>
+     
+	</tr>
+  </table></center>
+      
+</form>
+
+</body>
+
+</html>
